@@ -20,6 +20,7 @@ pem = "==19.1.0"
 cryptography = "==2.7"
 requests = "==2.22.0"
 apscheduler = "==3.6.0"
+dependency_injector = "==3.14.10"
 
 [dev-packages]
 awscli = "==1.16.177"
