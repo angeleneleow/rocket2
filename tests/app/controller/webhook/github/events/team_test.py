@@ -10,7 +10,7 @@ from app.controller.webhook.github.events import TeamEventHandler
 @pytest.fixture
 def team_default_payload():
     """Provide the basic structure for a team payload."""
-    default_payload =\
+    default_payload = \
         {
             "action": "added_to_repository",
             "team": {

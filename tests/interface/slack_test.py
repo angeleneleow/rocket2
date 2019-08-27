@@ -3,7 +3,6 @@ from interface.slack import Bot, SlackAPIError
 from slack import WebClient
 from unittest import mock, TestCase
 
-
 OK_RESP = {'ok': True}
 BAD_RESP = {'ok': False, 'error': 'Error'}
 
@@ -90,7 +89,7 @@ class TestBot(TestCase):
 
     def test_get_channel_users_failure(self):
         """Test get_channel_users() when Slack API call fails."""
-        self.mock_sc.conversations_members =\
+        self.mock_sc.conversations_members = \
             mock.MagicMock(return_value={"ok": False, "error": "Error"})
 
         try:
@@ -109,10 +108,10 @@ class TestBot(TestCase):
                                                      "name": name}
         assert self.bot.create_channel(name) == name
         try:
-            self.mock_sc.channels_create.return_value =\
+            self.mock_sc.channels_create.return_value = \
                 {"ok": False, "error": "name_taken"}
             assert self.bot.create_channel(name) == name
-            self.mock_sc.channels_create.return_value =\
+            self.mock_sc.channels_create.return_value = \
                 {"ok": False, "error": "invalid_name"}
             self.bot.create_channel(name)
         except SlackAPIError as e:

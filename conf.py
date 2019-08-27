@@ -13,8 +13,8 @@ documentation root, use os.path.abspath to make it absolute, like shown here.
 """
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'))
 
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
 
@@ -26,7 +26,6 @@ author = 'UBC Launch Pad'
 version = '0.0'
 # The full version, including alpha/beta/rc tags
 release = '0.0.0-alpha'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -68,7 +67,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md',
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'emacs'
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -103,7 +101,6 @@ html_static_path = ['docs/_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Rocket2doc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -132,7 +129,6 @@ latex_documents = [
      'UBC Launch Pad', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -141,7 +137,6 @@ man_pages = [
     (master_doc, 'rocket2', 'Rocket 2 Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -153,7 +148,6 @@ texinfo_documents = [
      author, 'Rocket2', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Options for Epub output -------------------------------------------------
 

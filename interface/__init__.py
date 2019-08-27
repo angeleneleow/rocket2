@@ -7,16 +7,16 @@ import dependency_injector.containers as containers
 import dependency_injector.providers as providers
 
 
-class Interfaces(containers.DeclarativeContainer):
+class InterfaceModule(containers.DeclarativeContainer):
     """All interfaces."""
 
-    github = providers.Factory(github.GithubInterface)
-    github_app_auth = providers.Factory(
+    github = providers.Singleton(github.GithubInterface)
+    github_app_auth = providers.Singleton(
         github_app.GithubAppInterface.GithubAppAuth)
-    slack = providers.Factory(slack.Bot)
+    slack = providers.Singleton(slack.Bot)
 
 
 class Clients(containers.DeclarativeContainer):
     """All third party libraries for the interface."""
 
-    slack = providers.Factory(WebClient)
+    slack = providers.Singleton(WebClient)

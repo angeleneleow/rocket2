@@ -10,7 +10,7 @@ from app.controller.webhook.github.events import OrganizationEventHandler
 @pytest.fixture
 def org_default_payload():
     """Provide the basic structure for an organization payload."""
-    default_payload =\
+    default_payload = \
         {
             "action": "member_added",
             "membership": {
@@ -138,7 +138,7 @@ def test_handle_org_event_rm_single_member(mock_logging, org_rm_payload):
     mock_facade.query.return_value = [return_user]
     webhook_handler = OrganizationEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(org_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "39652351")])
     mock_facade.delete.assert_called_once_with(User, "SLACKID")
     mock_logging.info.assert_called_with("deleted slack user SLACKID")
@@ -153,7 +153,7 @@ def test_handle_org_event_rm_member_missing(mock_logging, org_rm_payload):
     mock_facade.query.return_value = []
     webhook_handler = OrganizationEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(org_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "39652351")])
     mock_logging.error.assert_called_once_with("could not find user 39652351")
     assert rsp == "could not find user hacktocat"
@@ -170,7 +170,7 @@ def test_handle_org_event_rm_mult_members(mock_logging, org_rm_payload):
     mock_facade.query.return_value = [user1, user2, user3]
     webhook_handler = OrganizationEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(org_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "39652351")])
     mock_logging.error.assert_called_once_with("Error: found github ID "
                                                "connected to multiple"

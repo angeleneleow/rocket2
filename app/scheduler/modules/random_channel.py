@@ -23,10 +23,10 @@ class RandomChannelPromoter(ModuleBase):
 
     def get_job_args(self) -> Dict[str, Any]:
         """Get job configuration arguments for apscheduler."""
-        return {'trigger':      'cron',
-                'day_of_week':  'sat',
-                'hour':         12,
-                'name':         self.NAME}
+        return {'trigger': 'cron',
+                'day_of_week': 'sat',
+                'hour': 12,
+                'name': self.NAME}
 
     def do_it(self):
         """Select and post random channels to #general."""

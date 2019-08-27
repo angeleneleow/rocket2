@@ -158,5 +158,5 @@ def test_print():
                         " 'position': ''," \
                         " 'biography': 'bio test'," \
                         " 'image_url': ''," \
-                        " 'permissions_level': <Permissions.admin: 3>,"\
+                        " 'permissions_level': <Permissions.admin: 3>," \
                         " 'karma': 1}"

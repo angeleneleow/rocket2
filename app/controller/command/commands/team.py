@@ -6,6 +6,7 @@ from app.controller import ResponseTuple
 from app.controller.command.commands.base import Command
 from db.facade import DBFacade
 from interface.github import GithubAPIException, GithubInterface
+from interface.slack import Bot
 from app.model import Team, User
 from utils.slack_parse import check_permissions
 from typing import Any, List
@@ -24,7 +25,7 @@ class TeamCommand(Command):
     def __init__(self,
                  db_facade: DBFacade,
                  gh: GithubInterface,
-                 sc: Any) -> None:
+                 sc: Bot) -> None:
         """
         Initialize team command parser.
 

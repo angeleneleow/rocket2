@@ -10,7 +10,7 @@ from app.controller.webhook.github.events import MembershipEventHandler
 @pytest.fixture
 def mem_default_payload():
     """Provide the basic structure for a membership payload."""
-    default_payload =\
+    default_payload = \
         {
             "action": "removed",
             "scope": "team",
@@ -153,7 +153,7 @@ def test_handle_mem_event_rm_single_member(mock_logging, mem_rm_payload):
     mock_facade.retrieve.return_value = return_team
     webhook_handler = MembershipEventHandler(mock_facade)
     (rsp, code) = webhook_handler.handle(mem_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "21031067")])
     mock_facade.retrieve \
         .assert_called_once_with(Team, "2723476")
@@ -174,7 +174,7 @@ def test_handle_mem_event_rm_member_missing(mock_logging, mem_rm_payload):
     mock_facade.retrieve.return_value = return_team
     webhook_handler = MembershipEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(mem_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "21031067")])
     mock_logging.error.assert_called_once_with("slack user SLACKID "
                                                "not in rocket")
@@ -189,7 +189,7 @@ def test_handle_mem_event_rm_member_wrong_team(mock_logging, mem_rm_payload):
     mock_facade.query.return_value = []
     webhook_handler = MembershipEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(mem_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "21031067")])
     mock_logging.error.assert_called_once_with("could not find user 21031067")
     assert rsp == "could not find user 21031067"
@@ -206,7 +206,7 @@ def test_handle_mem_event_rm_mult_members(mock_logging, mem_rm_payload):
     mock_facade.query.return_value = [user1, user2, user3]
     webhook_handler = MembershipEventHandler(mock_facade)
     rsp, code = webhook_handler.handle(mem_rm_payload)
-    mock_facade.query\
+    mock_facade.query \
         .assert_called_once_with(User, [('github_user_id', "21031067")])
     mock_logging.error.assert_called_once_with("Error: found github ID "
                                                "connected to multiple"

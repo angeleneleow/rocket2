@@ -7,7 +7,7 @@ import string
 from app.controller.command import CommandParser
 from app.controller.command.commands.token import TokenCommandConfig
 from datetime import timedelta
-from db import DBFacade
+from db import DBModule
 from db.dynamodb import DynamoDB
 from interface.github import GithubInterface, DefaultGithubFactory
 from interface.slack import Bot

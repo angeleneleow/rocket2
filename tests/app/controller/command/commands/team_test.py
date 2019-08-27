@@ -525,8 +525,8 @@ class TestTeamCommand(TestCase):
         attach = team_update.get_attachment()
 
         status = f"1 teams changed, " \
-            f"0 added, " \
-            f"0 deleted. Wonderful."
+                 f"0 added, " \
+                 f"0 deleted. Wonderful."
         with self.app.app_context():
             resp, code = self.testcommand.handle("team refresh", user)
             expect = json.loads(jsonify({'attachments': [attach],
@@ -552,8 +552,8 @@ class TestTeamCommand(TestCase):
         attach2 = team2.get_attachment()
 
         status = f"0 teams changed, " \
-            f"1 added, " \
-            f"1 deleted. Wonderful."
+                 f"1 added, " \
+                 f"1 deleted. Wonderful."
         with self.app.app_context():
             resp, code = self.testcommand.handle("team refresh", user)
             expect = json.loads(jsonify({'attachments': [attach2, attach],

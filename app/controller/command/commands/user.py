@@ -24,7 +24,7 @@ class UserCommand(Command):
 
     def __init__(self,
                  db_facade: DBFacade,
-                 github_interface: GithubInterface) -> None:
+                 gh: GithubInterface) -> None:
         """Initialize user command."""
         logging.info("Initializing UserCommand instance")
         self.parser = ArgumentParser(prog="/rocket")
@@ -32,7 +32,7 @@ class UserCommand(Command):
         self.subparser = self.init_subparsers()
         self.help = self.get_help()
         self.facade = db_facade
-        self.github = github_interface
+        self.github = gh
 
     def init_subparsers(self) -> _SubParsersAction:
         """Initialize subparsers for user command."""

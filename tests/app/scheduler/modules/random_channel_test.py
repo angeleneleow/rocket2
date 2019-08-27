@@ -19,5 +19,5 @@ def test_doing_it(bot, config, app):
     promoter.do_it()
 
     bot.send_to_channel.assert_called()
-    assert 'general' in bot.send_to_channel.call_args[0][0] or\
-        'random' in bot.send_to_channel.call_args[0][0]
+    assert 'general' in bot.send_to_channel.call_args[0][0] or \
+           'random' in bot.send_to_channel.call_args[0][0]

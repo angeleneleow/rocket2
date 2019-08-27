@@ -1,5 +1,7 @@
 """Contain the dictionaries of configurations for all needed services."""
 import os
+import dependency_injector.containers as containers
+import dependency_injector.providers as providers
 
 
 class Config:
@@ -91,4 +93,10 @@ class MissingConfigError(Exception):
         :param: missing_config_fields List of missing config variables
         """
         self.error = 'Please set the following env variables:\n' + \
-            '\n'.join(missing_config_fields)
+                     '\n'.join(missing_config_fields)
+
+
+class ConfigModule(containers.DeclarativeContainer):
+    """Configuration dependencies module."""
+
+    config = providers.Singleton(Config)
